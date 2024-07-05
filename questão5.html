@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+function getRandomInt(max) {
+  return Math.floor(Math.random() * max) + 1;
+}
+
+
+const randomNumbers = [];
+for (let i = 0; i < 5; i++) {
+  randomNumbers.push(getRandomInt(100)); 
+}
+
+console.log("Números gerados aleatoriamente:", randomNumbers);
+
+
+randomNumbers.forEach(number => {
+  if (number % 3 === 0 && number % 5 === 0) {
+    console.log( "fizzbuzz");
+  } else if (number % 3 === 0) {
+    console.log( "fizz");
+  } else if (number % 5 === 0) {
+    console.log( "buzz");
+  } else {
+    
+  }
+});
+
+    </script>
+</body>
+</html>
