@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>// Função para multiplicar duas matrizes 2x2
+        function multiplicarMatrizes(matrizA, matrizB) {
+            // Verifica se as matrizes têm o formato 2x2
+            if (matrizA.length !== 2 || matrizA[0].length !== 2 ||
+                matrizB.length !== 2 || matrizB[0].length !== 2) {
+                throw new Error('As matrizes devem ser 2x2 para multiplicação simples.');
+            }
+        
+            // Calcula o produto das matrizes
+            let resultado = [
+                [matrizA[0][0] * matrizB[0][0] + matrizA[0][1] * matrizB[1][0],
+                 matrizA[0][0] * matrizB[0][1] + matrizA[0][1] * matrizB[1][1]],
+                [matrizA[1][0] * matrizB[0][0] + matrizA[1][1] * matrizB[1][0],
+                 matrizA[1][0] * matrizB[0][1] + matrizA[1][1] * matrizB[1][1]]
+            ];
+        
+            return resultado;
+        }
+        
+        // Função para obter uma matriz 2x2 do usuário usando prompt()
+        function obterMatrizDoUsuario() {
+            let matriz = [];
+        
+            for (let i = 0; i < 2; i++) {
+                matriz[i] = [];
+                for (let j = 0; j < 2; j++) {
+                    let valor = prompt(`Digite o valor para a posição [${i}][${j}]:`);
+                    matriz[i][j] = parseFloat(valor); // Converte para número (float)
+                }
+            }
+        
+            return matriz;
+        }
+        
+        // Obtém as matrizes do usuário
+        console.log('Digite os valores da primeira matriz:');
+        let matrizA = obterMatrizDoUsuario();
+        
+        console.log('Digite os valores da segunda matriz:');
+        let matrizB = obterMatrizDoUsuario();
+        
+        // Realiza a multiplicação das matrizes e exibe o resultado
+        try {
+            let resultado = multiplicarMatrizes(matrizA, matrizB);
+            console.log('Resultado da multiplicação das matrizes:');
+            console.log(resultado);
+        } catch (error) {
+            console.error(error.message);
+        }
+        </script>
+</body>
+</html>
